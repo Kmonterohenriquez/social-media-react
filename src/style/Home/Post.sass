@@ -1,0 +1,72 @@
+@import ../Colors
+
+.Post 
+    padding: 20px 15px
+    border: 1px solid #E4E4E4
+    background: white
+    border-radius: 8px
+
+    .top-part
+        display: flex 
+        justify-content: space-between
+        align-items: center
+
+        .menu-icon 
+            font-size: 1.2rem
+        
+        .user-info 
+            display: flex 
+            align-items: center
+
+            img 
+                height: 50px 
+                width: 50px 
+                object-fit: cover 
+                border-radius: 50%
+                margin-right: 10px 
+            div 
+                p.username 
+                    font-weight: 500 
+                    padding: 0 
+                    margin: 0
+                p.time-posted 
+                    color: #686868 
+                    font-size: .9rem
+
+    .description
+        padding: 15px 0
+        .description-top-part
+            .title
+                padding-top: 5px
+                font-weight: 500
+                font-size: 1.1rem
+            div 
+                display: flex
+                margin: 7px 0 15px
+                .job-type 
+                    background: #53D690 
+                    color: white 
+                    border-radius: 5px
+                    padding: 2px 5px
+                    font-size: .9rem
+                    margin-right: 10px
+                
+                .pay-rate 
+    .tech-used
+        display: flex
+        flex-wrap: wrap
+        p
+            margin: 0 5px 5px 5px
+            background: #F1F1F1
+            border-radius: 30px 
+            padding: 5px 10px 
+            color: #B2B2B2
+            text-align: center
+            cursor: pointer
+            transition: background .4s, color .4s
+            font-size: .9rem
+
+            &:hover 
+                background: $primary-color
+                color: white
+        
