@@ -3,7 +3,7 @@ import '../style/Footer.sass'
 const Footer = () => {
     return (
         <footer>
-            <p>WorkSmart All Right Reserved</p>
+            <p>WorkSmart <i className="far fa-copyright"></i> All Right Reserved</p>
         </footer>
     )
 }
