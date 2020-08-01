@@ -1,0 +1,35 @@
+@import ../Colors
+.Menu
+    background: white
+    border: 1px solid #E4E4E4
+    border-bottom: 2.5px solid #E4E4E4
+    padding: 20px
+    border-radius: 8px
+
+    .options
+        display: flex
+        flex-wrap: wrap 
+        p 
+            padding: 0px 4px
+            border-right: 1px solid grey
+            font-size: .75rem
+            color: #686868
+            margin: 5px 0
+            cursor: pointer
+            &:hover
+                text-decoration: underline
+                
+    .bottom 
+        margin-top: 10px
+        display: flex 
+        align-items: center 
+        justify-content: space-between 
+        
+        i.logo
+            font-size: 1.4rem
+            color: $primary-color
+        p
+            font-size: .8rem
+        
+            i
+                margin-right: 2px
