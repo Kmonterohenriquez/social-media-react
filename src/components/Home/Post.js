@@ -11,7 +11,7 @@ const Post = () => {
           <div>
             <p className="username">Kevin Montero</p>
             <p className="time-posted">
-              <i className="clock"></i> 3 min ago
+              <i className="far fa-clock"></i> 3 min ago
             </p>
           </div>
         </div>
@@ -22,7 +22,7 @@ const Post = () => {
           <p className="title">Full-Stack Web Developer</p>
           <div>
             <p className="job-type">Full Time</p>
-            <p className="pay-rate">$30/hr</p>
+            <p className="pay-rate">$55/hr</p>
           </div>
         </div>
         <p className="description-bottom-part">
@@ -39,6 +39,21 @@ const Post = () => {
         <p>Node</p>
         <p>Sass</p>
         
+      </div>
+      <hr/>
+      <div className="comment-section">
+        <p className='like-btn'><i className="far fa-thumbs-up"></i> Like</p>
+        <p className="comment-btn"><i className="far fa-comment-alt"></i> Comment</p>
+        <p className="share-btn"><i className="fas fa-share"></i> Share</p>
+      </div>
+      <hr/>
+      <div className="submit-commet-bar">
+        <img src={userPic} alt=""/>
+        <div className='input-container'>
+          <input type="text" placeholder='Write a comment...'/>
+          <i className="far fa-smile"></i>
+        </div>
+
       </div>
     </div>
   );
