@@ -9,13 +9,13 @@ const Nav = () => {
         <i className="fab fa-weebly logo"></i>
           <div className="search-bar">
             <input type="text" placeholder="Search..." />
-            <i className="fas fa-search search"></i>
+              <i className="fas fa-search search"></i>
           </div>
         </div>
         <div className="right-side">
           <nav>
             <ul>
-              <li><i className="fas fa-home"></i>Home</li>
+              <li className='active'><i className="fas fa-home"></i>Home</li>
               <li><i className="far fa-building"></i>Companies</li>
               <li><i className="fas fa-puzzle-piece"></i>Projects</li>
               <li><i className="fas fa-user-friends"></i>Profiles</li>
@@ -29,7 +29,7 @@ const Nav = () => {
               <img src={userPic} alt="" />
             </div>
             <p className="username">Kevin </p>
-            <i class="fas fa-angle-down arrow-down"></i>
+            <i className="fas fa-angle-down arrow-down"></i>
           </div>
         </div>
       </div>
