@@ -5,7 +5,7 @@ const Signup = () => {
   return (
     <div className="Signup">
       <div className="logo">
-        <img src="" alt="WorkSmart's logo" />
+      <i className="fab fa-weebly logo"></i>
       </div>
       <h1>Track Time on WorkSmart</h1>
       <p className="phrase">Pay only for the Hours worked</p>
