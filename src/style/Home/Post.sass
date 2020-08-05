@@ -1,10 +1,15 @@
 @import ../Colors
 
 .Post 
-    padding: 20px 15px
+    padding: 20px
+    padding-bottom: 0
     border: 1px solid #E4E4E4
+    border-bottom: 2.5px solid #E4E4E4
     background: white
     border-radius: 8px
+    hr 
+        
+        margin: 0
 
     .top-part
         display: flex 
@@ -12,8 +17,27 @@
         align-items: center
 
         .menu-icon 
+            position: relative
             font-size: 1.2rem
-        
+            color: #5f5f5f
+            margin-right: 15px
+            cursor: pointer
+            padding: 10px
+            border-radius: 50%
+            z-index: 2
+            &:hover:after 
+                transition: background 5s
+                transform: translateX(-50%)  
+                left: 50%
+                top: 0 
+                border-radius: 50%
+                height: 37px 
+                width: 37px
+                content: ""
+                z-index: -1
+                position: absolute
+                background: $hover-color
+            
         .user-info 
             display: flex 
             align-items: center
@@ -26,37 +50,45 @@
                 margin-right: 10px 
             div 
                 p.username 
-                    font-weight: 500 
+                    font-weight: 700 
                     padding: 0 
                     margin: 0
                 p.time-posted 
                     color: #686868 
                     font-size: .9rem
+                    word-spacing: -1.5px
 
     .description
         padding: 15px 0
+    
         .description-top-part
             .title
-                padding-top: 5px
-                font-weight: 500
+                padding-top: 10px
+                font-weight: 600
                 font-size: 1.1rem
             div 
                 display: flex
-                margin: 7px 0 15px
+                align-items: center
+                margin: 7px 0 20px
                 .job-type 
                     background: #53D690 
                     color: white 
                     border-radius: 5px
-                    padding: 2px 5px
+                    padding: 3px 5px
                     font-size: .9rem
                     margin-right: 10px
                 
-                .pay-rate 
+                .pay-rate
+                    font-size: .9rem 
+        p.description-bottom-part
+            line-height: 1.5rem
     .tech-used
         display: flex
         flex-wrap: wrap
+        padding: 5px 0
+        margin-bottom: 10px
         p
-            margin: 0 5px 5px 5px
+            margin: 0 2.5px 5px 5px
             background: #F1F1F1
             border-radius: 30px 
             padding: 5px 10px 
@@ -69,4 +101,54 @@
             &:hover 
                 background: $primary-color
                 color: white
-        
+    
+    .comment-section 
+        display: flex
+        justify-content: space-around
+        margin: 5px 0
+        p
+            color: #797878
+            cursor: pointer
+            font-size: 1rem
+            width: 100%
+            height: 100%
+            text-align: center
+            padding: 10px 0
+            border-radius: 5px
+            &:hover 
+                background: $hover-color
+
+        .like-btn 
+            margin-right: 10px
+
+    .submit-commet-bar 
+        display: flex
+        align-items: center 
+        margin: 15px 0
+        img 
+            height: 35px
+            width: 35px 
+            border-radius: 50% 
+            margin-right: 10px
+
+        .input-container
+            position: relative
+            width: 100%
+            input
+                width: 100%
+                border-radius: 30px 
+                border-style: none 
+                border: 1.3px solid #E4E4E4 
+                padding: 10px 15px
+                background: #f6f3f3c5
+            i 
+                position: absolute 
+                top: 50%
+                right: 15px
+                transform: translateY(-50%)
+                font-size: 1.3rem
+                color: #908f8f
+                cursor: pointer
+
+
+            
