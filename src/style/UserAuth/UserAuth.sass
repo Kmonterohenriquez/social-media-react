@@ -1,0 +1,69 @@
+@import ../Colors
+
+.UserAuth
+    background: #F5F5F5
+    min-height: calc(100vh - 32px) 
+    display: flex 
+    justify-content: center 
+    align-items: center
+
+    &-container 
+        overflow: hidden
+        background: white 
+        border-radius: 8px 
+        border: 1px solid #E4E4E4
+        border-bottom: 3px solid #E4E4E4
+        min-height: 500px
+        display: grid 
+        grid-gap: 30px 
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))
+
+    .left-side
+        display: flex 
+        flex-direction: column
+        justify-content: center 
+        align-items: center 
+        text-align: center
+        height: 100%
+        padding: 30px
+        background: $primary-color
+        color: white
+        h1.logo
+            font-size: 1.8rem
+            color: white
+            margin-bottom: 20px
+            
+            i
+                font-size: 2.3rem
+                padding: 4px
+
+    .right-side
+        padding: 30px
+        .top 
+            display: flex 
+            justify-content: flex-end
+            border-radius: 15px
+            margin-bottom: 30px
+
+            button 
+                border-radius: 0 
+                border-style: none
+                padding: 8px
+
+            .login-btn 
+                border-top-left-radius:  8px
+                border-bottom-left-radius: 8px
+
+            .signup-btn 
+                border-top-right-radius:  8px
+                border-bottom-right-radius: 8px
+
+            .active 
+                background: $primary-color 
+                color: white
+
+            
+    
+        
+
+    
