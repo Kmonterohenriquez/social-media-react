@@ -1,10 +1,13 @@
 @import ./mixings 
 @import ./Colors
+@import ./Fonts
 *
   margin: 0
   padding: 0 
   box-sizing: border-box 
   outline: none
+  font-family: 'Varela Round', sans-serif
+  font-size: 15px
   
   button:focus
     outline-style: none
@@ -23,6 +26,8 @@
   background: $primary-color
   transition: .3s background
   color: white
+  border-style: none 
+  cursor: pointer
   &:hover 
     background: lighten($primary-color, 5% )
 
