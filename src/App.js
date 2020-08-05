@@ -7,14 +7,17 @@ import routes from "./router"
 import Nav from "./components/Nav";
 import Footer from "./components/Footer"
 
-function App() {
+import {withRouter} from "react-router-dom"
+
+function App(props) {
+  let currLocation = props.location.pathname;
   return (
     <div className="App">
-      <Nav />
+      {currLocation !== '/user-auth'? <Nav />: null}
       {routes}
       <Footer/>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
