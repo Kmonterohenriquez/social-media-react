@@ -1,12 +1,13 @@
 import React from "react";
 import "../style/Nav.sass";
 import userPic  from '../img/user_pic.jpg'
+import {Link} from "react-router-dom"
 const Nav = () => {
   return (
     <div className="Nav">
       <div className="Nav-container md-container">
         <div className="left-side">
-        <i className="fab fa-weebly logo"></i>
+        <Link to='/'><i className="fab fa-weebly logo"></i></Link>
           <div className="search-bar">
             <input type="text" placeholder="Search..." />
               <i className="fas fa-search search"></i>
@@ -15,7 +16,7 @@ const Nav = () => {
         <div className="right-side">
           <nav>
             <ul>
-              <li className='active'><i className="fas fa-home"></i>Home</li>
+            <Link to="/"><li className='active'><i className="fas fa-home"></i>Home</li></Link>
               <li><i className="far fa-building"></i>Companies</li>
               <li><i className="fas fa-puzzle-piece"></i>Projects</li>
               <li><i className="fas fa-user-friends"></i>Profiles</li>
