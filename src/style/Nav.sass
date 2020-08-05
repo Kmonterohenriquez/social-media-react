@@ -16,45 +16,51 @@
             color: white 
             font-weight: bolder
             font-size: 1.5rem
+            cursor: pointer
+            transition: color .3s
+
+            &:hover 
+                color: #d8d8d8
 
         .search-bar
             position: relative
 
             input 
-                padding: 10px
-                border-radius: 4px 
+                padding: 10px 40px 10px 12px
+                border-radius: 30px 
                 border-style: none
-                width: 255px
+                width: 300px
+                background: #F1F3F5
 
                 &:focus
                     outline-style: none
             i.search 
-                min-height: 100%
-                min-width: 35px
-                position: absolute 
-                top: 0px
-                right: 0px
+                position: absolute
+                content: ''
+                transform: translateY(-50%) 
+                top: 50%
+                right: 15px
                 cursor: pointer
-                background: #9e9d9d 
-                padding: 9.5px 10px
-                border-top-right-radius: 4px
-                border-bottom-right-radius: 4px
+                color: #0c68a5
 
     .right-side
         display: flex
 
         nav 
+            
             ul
                 margin: 0
                 display: flex
                 justify-content: center 
                 align-items: center
+                a 
+                    text-decoration: none
                 li 
                     text-align: center
                     list-style: none 
                     padding: 15px  20px
                     color: white
-                    font-size: .9rem
+                    font-size: .85rem
                     cursor: pointer
                     &:hover 
                         background: lighten($primary-color, 5% )
