@@ -8,6 +8,9 @@ import Signup from "../components/UserAuth/Signup";
 
 const UserAuth = () => {
   const [active, setActive] = useState(false);
+  const changeHandler = () => {
+    setActive(!active);
+  };
 
   return (
     <div className="UserAuth">
@@ -40,7 +43,11 @@ const UserAuth = () => {
                 Sign up
               </button>
             </div>
-            {active === false ? <Login /> : <Signup />}
+            {active === false ? (
+              <Login />
+            ) : (
+              <Signup changeHandler={changeHandler} />
+            )}
           </div>
         </div>
       </div>

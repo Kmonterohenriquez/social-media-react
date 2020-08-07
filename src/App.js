@@ -14,11 +14,9 @@ function App(props) {
   let currLocation = props.location.pathname;
   return (
     <div className="App">
-      <div className="md-container">
-        {currLocation !== "/user-auth" ? <Nav /> : null}
-        {routes}
-        <Footer />
-      </div>
+      {currLocation !== "/" ? <Nav /> : null}
+      {routes}
+      <Footer />
     </div>
   );
 }

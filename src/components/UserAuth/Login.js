@@ -10,12 +10,10 @@ const Login = (props) => {
   const [response, setResponse] = useState("");
 
   const handleLogin = (e) => {
-    console.log("email", email, " password ", password);
-
     e.preventDefault();
     Axios.post("/api/login", { email, password })
       .then((res) => {
-        props.history.push("/");
+        props.history.push("/dashboard");
         setResponse(res.data.message);
         console.log("Logged", res);
       })

@@ -7,8 +7,7 @@ import UserAuth from "./Views/UserAuth";
 
 export default (
   <Switch>
-    <Route component={Home} exact path="/" />
     <Route component={Home} exact path="/dashboard" />
-    <Route component={UserAuth} exact path="/user-auth" />
+    <Route component={UserAuth} exact path="/" />
   </Switch>
 );
