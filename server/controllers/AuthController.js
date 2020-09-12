@@ -11,7 +11,7 @@ const register = (req, res, next) => {
       res.json({
         error: err,
       });
-    }
+    } 
     // Get info from Front-End and Create object for new User registered
     let user = new User({
       firstName,
@@ -32,7 +32,7 @@ const register = (req, res, next) => {
       })
       .catch((err) => {
         res.json({
-          message: "An error ocurred",
+          message: "An error ocurred Adding an User.",
         });
       });
   });
