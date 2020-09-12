@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "../../style/UserAuth/Login.sass";
+import "../../style/UserAuth/Login.sass"; // Style
 import { withRouter } from "react-router-dom";
-
 import Axios from "axios";
+
+// REDUX
+import { connect } from "react-redux";
+import getCurrUser from "../../redux/actions/getCurrUser";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -12,10 +15,10 @@ const Login = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
     Axios.post("/api/login", { email, password })
-      .then((res) => {
+      .then(async (res) => {
+        await props.getCurrUser({ email });
+        setResponse(res.data.message); // This is just for testing -- Remove it when the Web app is done --
         props.history.push("/dashboard");
-        setResponse(res.data.message);
-        console.log("Logged", res);
       })
       .catch((err) => {
         setResponse(err.response.data.message);
@@ -48,7 +51,8 @@ const Login = (props) => {
           onClick={(e) => handleLogin(e)}
         >
           Login
-        </button>{" "}
+        </button>
+        <button className="secondary-btn btn">Guest</button>
         <a href="/">Forget Password?</a>
         <p className="error">{response}</p>
       </form>
@@ -64,4 +68,7 @@ const Login = (props) => {
   );
 };
 
-export default withRouter(Login);
+const mapStateToProps = (state) => ({
+  getCurrUser: state.getCurrUser,
+});
+export default withRouter(connect(mapStateToProps, { getCurrUser })(Login));
