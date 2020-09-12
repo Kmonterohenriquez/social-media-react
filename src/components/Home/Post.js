@@ -2,7 +2,7 @@ import React from "react";
 import userPic from "../../img/user_pic.jpg";
 import "../../style/Home/Post.sass";
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
     <div className="Post">
       <div className="top-part">
@@ -19,18 +19,13 @@ const Post = () => {
       </div>
       <div className="description">
         <div className="description-top-part">
-          <p className="title">Full-Stack Web Developer</p>
+          <p className="title">{post.title}</p>
           <div>
-            <p className="job-type">Full Time</p>
-            <p className="pay-rate">$55/hr</p>
+            <p className="job-type">{post.type}</p>
+            <p className="pay-rate">${post.salary}</p>
           </div>
         </div>
-        <p className="description-bottom-part">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-          distinctio asperiores, voluptatem quia placeat rem eveniet cum, quod
-          natus repudiandae accusantium totam, atque nihil recusandae.
-          Accusantium sed rem rerum aliquam!
-        </p>
+        <p className="description-bottom-part">{post.description}</p>
       </div>
       <div className="tech-used">
         <p>HTML</p>
@@ -38,22 +33,26 @@ const Post = () => {
         <p>React</p>
         <p>Node</p>
         <p>Sass</p>
-        
       </div>
-      <hr/>
+      <hr />
       <div className="comment-section">
-        <p className='like-btn'><i className="far fa-thumbs-up"></i> Like</p>
-        <p className="comment-btn"><i className="far fa-comment-alt"></i> Comment</p>
-        <p className="share-btn"><i className="fas fa-share"></i> Share</p>
+        <p className="like-btn">
+          <i className="far fa-thumbs-up"></i> Like
+        </p>
+        <p className="comment-btn">
+          <i className="far fa-comment-alt"></i> Comment
+        </p>
+        <p className="share-btn">
+          <i className="fas fa-share"></i> Share
+        </p>
       </div>
-      <hr/>
+      <hr />
       <div className="submit-commet-bar">
-        <img src={userPic} alt=""/>
-        <div className='input-container'>
-          <input type="text" placeholder='Write a comment...'/>
+        <img src={userPic} alt="" />
+        <div className="input-container">
+          <input type="text" placeholder="Write a comment..." />
           <i className="far fa-smile"></i>
         </div>
-
       </div>
     </div>
   );
