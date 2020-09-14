@@ -31,10 +31,9 @@ const getOnePost = (req, res, next) => {
 };
 
 // CREATE Post
-const createPost = (req, res, next) => {
-  const { title, skills, salary, type, description } = req.body;
-  let post = new Post({ title, skills, salary, type, description });
-  console.log(post)
+async function createPost(req, res, next) {
+  const { title, image, skills, salary, category, description } = req.body;
+  let post = new Post({ title, image, skills, salary, category, description });
   // SAVE new post in DB
   post
     .save()
@@ -49,19 +48,32 @@ const createPost = (req, res, next) => {
       res.json({
         message: "An error ocurred Creating a Post.",
       });
+      console.log("An error ocurred Creating a Post.");
     });
-};
+}
 
 // DELETE Post
 const deletePost = (req, res, next) => {
-  const {} = req.body;
+  const id = req.params.post_id;
+  Post.findByIdAndDelete(id)
+    .then((res) => res.json("Post deleted."))
+    .catch((err) => res.status(400).json("Error: " + err));
 };
 
 // UPDATE Post
 const updatePost = (req, res, next) => {
-  const {} = req.body;
+  // GET post's information existed to UPDATE it
+  const { title, image, skills, salary, category, description } = req.body;
 
-  let post = new Post({});
+  // Look for Post by its ID and UPDATE with new info that User inserted.
+  Post.findById(req.params.post_id).then((post) => {
+    post.title = title;
+    post.image = image;
+    post.skills = skills;
+    post.salary = salary;
+    post.category = category;
+    post.description = description;
+  });
 };
 
 module.exports = { getPosts, getOnePost, createPost, deletePost, updatePost };
