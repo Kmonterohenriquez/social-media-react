@@ -56,8 +56,8 @@ async function createPost(req, res, next) {
 const deletePost = (req, res, next) => {
   const id = req.params.post_id;
   Post.findByIdAndDelete(id)
-    .then((res) => res.json("Post deleted."))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .then((res) => res.json({ message: "Post deleted." }))
+    .catch((err) => res.json({ message: "Error occured when deleting post." }));
 };
 
 // UPDATE Post
