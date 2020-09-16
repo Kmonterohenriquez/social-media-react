@@ -10,6 +10,10 @@ const postSchema = new Schema(
       trim: true,
       minlength: 5,
     },
+    image: {
+      type: String,
+      trim: true,
+    },
     skills: {
       type: String,
       // required: true,
@@ -18,10 +22,10 @@ const postSchema = new Schema(
     salary: {
       type: String,
       // required: true,
-      
+
       trim: true,
     },
-    type: {
+    category: {
       type: String,
       // required: true,
       trim: true,
@@ -40,4 +44,3 @@ const postSchema = new Schema(
 const Post = mongoose.model("Post", postSchema);
 
 module.exports = Post;
-
