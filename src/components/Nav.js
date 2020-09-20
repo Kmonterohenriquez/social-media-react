@@ -16,8 +16,8 @@ const Nav = () => {
         <div className="right-side">
           <nav>
             <ul>
-            <Link to="/"><li className='active'><i className="fas fa-home"></i>Home</li></Link>
-              <li><i className="far fa-building"></i>Companies</li>
+            <Link to="/dashboard"><li className='active'><i className="fas fa-home"></i>Home</li></Link>
+              <Link to='/companies'><li><i className="far fa-building"></i>Companies</li></Link>
               <li><i className="fas fa-puzzle-piece"></i>Projects</li>
               <li><i className="fas fa-user-friends"></i>Profiles</li>
               <li><i className="fas fa-briefcase"></i>Jobs</li>
