@@ -1,6 +1,6 @@
 @import ../Colors
 
-.Post 
+.Post
     padding: 20px
     padding-bottom: 0
     border: 1px solid #E4E4E4
@@ -15,6 +15,7 @@
         display: flex 
         justify-content: space-between
         align-items: center
+        position: relative
 
         .menu-icon 
             position: relative
@@ -43,24 +44,64 @@
             align-items: center
 
             img 
-                height: 50px 
-                width: 50px 
+                height: 40px 
+                width: 40px 
                 object-fit: cover 
                 border-radius: 50%
-                margin-right: 10px 
+                margin-right: 10px
             div 
                 p.username 
                     font-weight: 700 
                     padding: 0 
                     margin: 0
-                p.time-posted 
                     color: #686868 
                     font-size: .9rem
                     word-spacing: -1.5px
-
+        .post-menu 
+            position: absolute
+            display: flex
+            top: 40px
+            right: 30px 
+            background: white 
+            border-radius: 8px
+            border: 1px solid #E4E4E4
+            border-bottom: 3px solid #E4E4E4
+            
+            ul 
+                margin: none
+                padding: none
+                li 
+                    list-style: none
+                    padding: 15px 20px
+                    cursor: pointer
+                    display: flex
+                    
+                    &:hover 
+                        background: #E4E4E4
+                    div 
+                        width: 15px
+                        display: flex 
+                        justify-content: center
+                        margin-right: 10px
+                
+            
+    .img-container
+        max-height: 600px
+        width: 100%
+        margin-bottom: 15px
+        border-radius: 8px
+        overflow: hidden
+        z-index: 4
+        display: flex 
+        justify-content: center 
+        background: #e9e8e865
+        img
+            border-radius: 8px
+            height: 100%
+            width: 400px
+            object-fit: cover
+            object-position: top
     .description
-        padding: 15px 0
-    
         .description-top-part
             .title
                 padding-top: 10px
@@ -69,7 +110,7 @@
             div 
                 display: flex
                 align-items: center
-                margin: 7px 0 20px
+                margin: 7px 0 10px
                 .job-type 
                     background: #53D690 
                     color: white 
@@ -82,6 +123,7 @@
                     font-size: .9rem 
         p.description-bottom-part
             line-height: 1.5rem
+            margin-bottom: 10px
     .tech-used
         display: flex
         flex-wrap: wrap
@@ -118,8 +160,9 @@
             &:hover 
                 background: $hover-color
 
-        .like-btn 
-            margin-right: 10px
+        .liked 
+            color: #2852a0
+            
 
     .submit-commet-bar 
         display: flex
