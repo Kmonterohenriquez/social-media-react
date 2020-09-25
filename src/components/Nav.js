@@ -7,7 +7,7 @@ const Nav = () => {
     <div className="Nav">
       <div className="Nav-container md-container">
         <div className="left-side">
-        <Link to='/'><i className="fab fa-weebly logo"></i></Link>
+        <Link to='/dashboard'><i className="fab fa-weebly logo"></i></Link>
           <div className="search-bar">
             <input type="text" placeholder="Search..." />
               <i className="fas fa-search search"></i>
