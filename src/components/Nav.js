@@ -25,13 +25,15 @@ const Nav = () => {
               <li><i className="far fa-bell"></i>Notification</li>
             </ul>
           </nav>
-          <div className="profile-menu">
-            <div className="profile-picture">
-              <img src={userPic} alt="" />
+          <Link to="/profile">
+            <div className="profile-menu">
+              <div className="profile-picture">
+                <img src={userPic} alt="" />
+              </div>
+              <p className="username">Kevin </p>
+              <i className="fas fa-angle-down arrow-down"></i>
             </div>
-            <p className="username">Kevin </p>
-            <i className="fas fa-angle-down arrow-down"></i>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

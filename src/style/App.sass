@@ -14,7 +14,8 @@
 
 .App 
   background: #F5F5F5
-
+.sm-container 
+  @include container(1100px, 90%)
 .md-container 
   @include container(1200px, 90%)
 
@@ -24,18 +25,27 @@
   border-radius: 5px
   cursor: pointer
   font-size: .95rem
-
-.primary-btn 
-  background: $primary-color
-  transition: .3s background
+.primary-btn, .secondary-btn  
   color: white
+  padding: 8px 18px
+  border-style: none
+  border-radius: 30px
+  margin-bottom: 20px
+  transition: .3s background
   border-style: none 
   cursor: pointer
+
+
+.primary-btn
+  background: $primary-color
   &:hover 
     background: lighten($primary-color, 5% )
 
-.secondary-btn 
-  color: #646464 
+.secondary-btn
+  color: black
+  background: #d4d7dd
+  &:hover 
+    background: darken(#d4d7dd, 10% )
 
 hr 
   width: 100%

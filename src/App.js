@@ -13,11 +13,11 @@ import { withRouter } from "react-router-dom";
 function App(props) {
   let currLocation = props.location.pathname;
   return (
-    <div className="App">
+    <>
       {currLocation !== "/" ? <Nav /> : null}
       {routes}
       <Footer />
-    </div>
+    </>
   );
 }
 

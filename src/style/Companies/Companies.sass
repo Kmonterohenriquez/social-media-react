@@ -9,39 +9,53 @@
 
     .Company
         margin-top: 30px
-        display: flex
-        flex-direction: column 
-        align-items: center
-        justify-content: center 
         background: white
-        max-width: 200px
-        padding: 30px
-        border-radius: 8px
+        max-width: 220px
         box-shadow: 1px 3px 3px 1px #5555551e
+        border-radius: 8px
 
-        img 
-            height: 100px
-            margin-bottom: 10px
-        h1 
-            margin-bottom: 10px
-            font-size: 1.05rem
-        p
-            color: #747171
-            font-size: .9rem
-            margin-bottom: 15px
-        
-        .btn-container 
-            button 
-                padding: 10px 15px
-                border-radius: 8px 
-                border-style: none
+        &-info
+            padding: 30px 30px 0 
+            display: flex
+            flex-direction: column 
+            align-items: center
+            justify-content: center 
 
-            button.follow-btn
-                margin-right: 10px 
-                background: $primary-color
-                color: white
+            img 
+                height: 100px
+                margin-bottom: 10px
+            h1 
+                margin-bottom: 10px
+                font-size: 1.05rem
+            p
+                color: #747171
+                font-size: .9rem
+                margin-bottom: 15px
             
-            button.msg-btn 
-                color: #6a6a6a
+            .btn-container 
+                button 
+                    padding: 10px 15px
+                    border-radius: 8px 
+                    border-style: none
+
+                button.follow-btn
+                    margin-right: 10px 
+                    background: $primary-color
+                    color: white
+                
+                button.msg-btn 
+                    color: #6a6a6a
+        hr 
+            margin: 0
+            margin-top: 20px
+
+        .View-profile
+            // margin-top: 5px
+            padding: 20px 30px
+            text-align: center
+            cursor: pointer
+            transition: background .5s
+            &:hover 
+                background: $hover-color
 
         

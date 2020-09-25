@@ -9,15 +9,19 @@ const Company = ({ CompanyInfo }) => {
   // } = CompanyInfo;
   return (
     <div className="Company">
-      <img src={logo} alt="name" />
-      <h1>{name}</h1>
-      <p>Establish {founded}</p>
-      <div className='btn-container'>
-        <button className="follow-btn">Follow</button>
-        <button className="msg-btn">
-          <i className="fas fa-envelope"></i>
-        </button>
+      <div className="Company-info">
+        <img src={logo} alt="name" />
+        <h1>{name}</h1>
+        <p>Establish {founded}</p>
+        <div className='btn-container'>
+          <button className="follow-btn">Follow</button>
+          <button className="msg-btn">
+            <i className="fas fa-envelope"></i>
+          </button>
+        </div>
       </div>
+      <hr/>
+      <p className="View-profile">View Profile</p>
     </div>
   );
 };
