@@ -3,6 +3,8 @@ import '../../style/Profile/UserFeed.sass'
 import Post from '../Home/Post'
 import axios from 'axios'
 
+import loading from '../../img/loading.gif'
+
 const UserFeed = () => {
     const [posts, setPosts] = useState([]);
     async function getPosts() {
@@ -21,12 +23,14 @@ const UserFeed = () => {
         <div className='UserFeed'>
             {posts.length ? (
             posts.map((post) => (
-              <div key={post._id}>
+              <div className="post" key={post._id}>
                 <Post post={post} getPosts={getPosts} />
               </div>
             ))
           ) : (
-            <h1 className='no-post'>No Post Found</h1>
+            <div className='loading'>
+              <img className="loading-gif" src={loading} alt='loading information'/>
+            </div>
           )}
         </div>
     )
