@@ -3,8 +3,12 @@ import "../style/Nav.sass";
 import userPic  from '../img/user_pic.jpg'
 import {Link} from "react-router-dom"
 const Nav = () => {
+  const [state, setState] =React.useState({
+    showNotifications: false
+  })
   return (
     <div className="Nav">
+      <div className="test" onClick={()=> setState({showNotifications: !state.showNotifications})}></div>
       <div className="Nav-container md-container">
         <div className="left-side">
         <Link to='/dashboard'><i className="fab fa-weebly logo"></i></Link>
@@ -22,7 +26,12 @@ const Nav = () => {
               <li><i className="fas fa-user-friends"></i>Profiles</li>
               <li><i className="fas fa-briefcase"></i>Jobs</li>
               <li><i className="far fa-comments"></i>Messages</li>
-              <li><i className="far fa-bell"></i>Notification</li>
+              <li onClick={()=> setState({showNotifications: !state.showNotifications})}><i className="far fa-bell"></i>Notification 
+              {state.showNotifications?<ul>
+                <li>example</li>
+                <li>example</li>
+                <li>example</li>
+              </ul>: null}</li>
             </ul>
           </nav>
           <Link to="/profile">
