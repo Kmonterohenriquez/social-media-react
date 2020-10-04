@@ -3,19 +3,23 @@
     padding: 70px 0
     min-height: calc( 100vh - 95px)
     background: #f5f5f5
-
+    &-grid 
+        display: grid 
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr))
+        grid-gap: 15px 10px
+        justify-items: center
     .main-title 
         font-size: 1.5rem
 
     .Company
-        margin-top: 30px
+        // margin-top: 30px
         background: white
         max-width: 220px
         box-shadow: 1px 3px 3px 1px #5555551e
         border-radius: 8px
 
         &-info
-            padding: 30px 30px 0 
+            padding: 30px 35px 0 
             display: flex
             flex-direction: column 
             align-items: center
@@ -37,6 +41,7 @@
                     padding: 10px 15px
                     border-radius: 8px 
                     border-style: none
+                    cursor: pointer
 
                 button.follow-btn
                     margin-right: 10px 
