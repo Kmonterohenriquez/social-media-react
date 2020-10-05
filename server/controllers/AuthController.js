@@ -51,7 +51,7 @@ const login = (req, res, next) => {
         if (err) {
           res.json({
             error: err,
-          });
+        });
         }
         if (result) {
           let token = jwt.sign({ name: user.name }, "verySecretValue", {
