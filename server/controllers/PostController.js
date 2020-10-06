@@ -30,10 +30,38 @@ const getOnePost = (req, res, next) => {
   });
 };
 
+//
+const getUserPosts = (req, res, next) => {
+  const { userID } = req.params;
+  Post.find({ $or: [{ userID }] }).then((post) => {
+    res.status(200).json({
+      status: "succes",
+      message: "Posts ready!",
+      data: post,
+    });
+  });
+};
+
 // CREATE Post
 async function createPost(req, res, next) {
-  const { title, image, skills, salary, category, description } = req.body;
-  let post = new Post({ title, image, skills, salary, category, description });
+  const {
+    title,
+    image,
+    skills,
+    salary,
+    category,
+    description,
+    userID,
+  } = req.body;
+  let post = new Post({
+    title,
+    image,
+    skills,
+    salary,
+    category,
+    description,
+    userID,
+  });
   // SAVE new post in DB
   post
     .save()
@@ -76,4 +104,4 @@ const updatePost = (req, res, next) => {
   });
 };
 
-module.exports = { getPosts, getOnePost, createPost, deletePost, updatePost };
+module.exports = { getPosts, getOnePost, getUserPosts, createPost, deletePost, updatePost };
