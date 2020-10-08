@@ -11,7 +11,7 @@ const register = (req, res, next) => {
       res.json({
         error: err,
       });
-    } 
+    }
     // Get info from Front-End and Create object for new User registered
     let user = new User({
       firstName,
@@ -51,7 +51,7 @@ const login = (req, res, next) => {
         if (err) {
           res.json({
             error: err,
-        });
+          });
         }
         if (result) {
           let token = jwt.sign({ name: user.name }, "verySecretValue", {
