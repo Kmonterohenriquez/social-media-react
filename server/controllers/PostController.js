@@ -104,4 +104,11 @@ const updatePost = (req, res, next) => {
   });
 };
 
-module.exports = { getPosts, getOnePost, getUserPosts, createPost, deletePost, updatePost };
+module.exports = {
+  getPosts,
+  getOnePost,
+  getUserPosts,
+  createPost,
+  deletePost,
+  updatePost,
+};
