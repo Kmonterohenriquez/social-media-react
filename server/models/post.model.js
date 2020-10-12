@@ -16,24 +16,23 @@ const postSchema = new Schema(
     },
     skills: {
       type: String,
-      // required: true,
       trim: true,
     },
     salary: {
       type: String,
-      // required: true,
-
       trim: true,
     },
     category: {
       type: String,
-      // required: true,
       trim: true,
     },
     description: {
       type: String,
-      // required: true,
       minlength: 30,
+    },
+    userID: {
+      type: String,
+      required: true,
     },
   },
   {
