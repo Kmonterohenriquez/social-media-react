@@ -1,22 +1,20 @@
 import React, { useState } from "react";
-import "../../style/UserAuth/Signup.sass";
 import "../../style/UserAuth/Login.sass";
 import Axios from "axios";
 
+import user_placeholder from "../../img/user_placeholder.svg";
+
 const Signup = ({ changeHandler }) => {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [userPic, setUserPic] = useState(user_placeholder);
 
   const register = () => {
     Axios.post("/api/register", {
-      username,
       email,
       password,
-      firstName,
-      lastName,
+      fullName,
     })
       .then((res) => {
         console.log(res);
@@ -27,29 +25,16 @@ const Signup = ({ changeHandler }) => {
 
   return (
     <div className="Login">
-      <h1 className="Login-title">Sign up</h1>
-      <div className="input-box">
-        <i className="fas fa-user"></i>
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
+      <h1 className="Signup-title">Sign up</h1>
+      <div className="user-pic-container">
+        <img src={userPic} alt=""/>
       </div>
       <div className="input-box">
         <i className="fas fa-user"></i>
         <input
           type="text"
-          placeholder="First name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </div>
-      <div className="input-box">
-        <i className="fas fa-user"></i>
-        <input
-          type="text"
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
+          placeholder="Full name"
+          onChange={(e) => setFullName(e.target.value)}
         />
       </div>
       <div className="input-box">
@@ -72,14 +57,6 @@ const Signup = ({ changeHandler }) => {
       <button className="primary-btn" onClick={() => register()}>
         Register
       </button>
-      <div className="bottom">
-        <h1>Signup via social account</h1>
-        <div className="social-media">
-          <i className="fab fa-facebook fb"></i>
-          <i className="fab fa-google google"></i>
-          <i className="fab fa-twitter twitter"></i>
-        </div>
-      </div>
     </div>
   );
 };

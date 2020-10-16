@@ -12,11 +12,20 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e, guest) => {
+    let newEmail, newPassword;
     e.preventDefault();
-    Axios.post("/api/login", { email, password })
+    if (guest) {
+      newEmail = "guest@example.com";
+      newPassword = "1234";
+    } else {
+      newEmail = email;
+      newPassword = password;
+    }
+
+    Axios.post("/api/login", { email: newEmail, password: newPassword })
       .then(async (res) => {
-        await props.getCurrUser({ email });
+        await props.getCurrUser(email);
         setResponse(res.data.message); // This is just for testing -- Remove it when the Web app is done --
         props.history.push("/dashboard");
       })
@@ -29,7 +38,7 @@ const Login = (props) => {
     <div className="Login">
       <h1 className="Login-title">Log In</h1>
       <form>
-        <div className="input-box">
+        <div className="input-box mt-lg">
           <i className="fas fa-user"></i>
           <input
             type="text"
@@ -48,22 +57,19 @@ const Login = (props) => {
         <button
           type="submit"
           className="primary-btn"
-          onClick={(e) => handleLogin(e)}
+          onClick={(e) => handleLogin(e, false)}
         >
           Login
         </button>
-        <button className="secondary-btn btn">Guest</button>
+        <button
+          className="secondary-btn btn"
+          onClick={(e) => handleLogin(e, true)}
+        >
+          Guest
+        </button>
         <a href="/">Forget Password?</a>
         <p className="error">{response}</p>
       </form>
-      <div className="bottom">
-        <h1>Login via social account</h1>
-        <div className="social-media">
-          <i className="fab fa-facebook fb"></i>
-          <i className="fab fa-google google"></i>
-          <i className="fab fa-twitter twitter"></i>
-        </div>
-      </div>
     </div>
   );
 };
