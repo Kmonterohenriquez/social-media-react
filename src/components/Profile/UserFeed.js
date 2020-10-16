@@ -5,11 +5,11 @@ import axios from 'axios'
 
 import loading from '../../img/loading.gif'
 
-const UserFeed = () => {
+const UserFeed = ({currUser}) => {
     const [posts, setPosts] = useState([]);
     async function getPosts() {
         await axios
-          .get("/posts/")
+          .get(`/posts/profile/${currUser._id}`)
           .then((res) => {
             setPosts(res.data.data.reverse());
           })
@@ -17,7 +17,6 @@ const UserFeed = () => {
       }
       useEffect(() => {
         getPosts();
-        console.log("Redered");
       }, []);
     return (
         <div className='UserFeed'>
