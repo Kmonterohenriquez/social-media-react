@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../style/Home/PostAJobModal.sass";
 
-function PostAJobModal({ modalHandler, getPosts }) {
+function PostAJobModal({ modalHandler, getPosts, userID }) {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [skills, setSkills] = useState("");
@@ -12,11 +12,10 @@ function PostAJobModal({ modalHandler, getPosts }) {
 
   function createPost() {
     axios
-      .post("/posts", { title, image, skills, salary, category, description })
+      .post("/posts", { title, image, skills, salary, category, description, userID })
       .then((res) => {
         modalHandler();
         getPosts();
-        console.log(res);
       })
       .catch((err) => console.log(err));
   }
