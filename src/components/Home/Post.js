@@ -2,10 +2,22 @@ import React, { useState } from "react";
 import userPic from "../../img/user_pic.jpg";
 import "../../style/Home/Post.sass";
 import PostComment from "./PostComment";
+import Comment from "../../components/Home/Comment";
 import axios from "axios";
 
-const Post = ({ post, getPosts }) => {
+const Post = ({ post, getPosts, getComments, comments }) => {
   const [postMenu, setPostMenu] = useState(false);
+  const [commentToggle, setCommentToggle] = useState(false);
+
+  // Filter all comments into just Local comments
+  if (comments) {
+    var localComments = comments.filter(
+      (comment) => post._id === comment.postID
+    );
+  }
+
+  const handleCommentToggle = () => setCommentToggle(!commentToggle);
+
   const deletePost = async (id) => {
     await axios
       .delete(`/posts/${id}`)
@@ -13,8 +25,9 @@ const Post = ({ post, getPosts }) => {
         await getPosts();
         setPostMenu(false);
       })
-      .catch((err) => console.log("droga"));
+      .catch((err) => console.log(err));
   };
+
   return (
     <div className="Post">
       <div className="top-part">
@@ -34,23 +47,23 @@ const Post = ({ post, getPosts }) => {
         {postMenu ? (
           <div className="post-menu">
             <ul>
-              {/* <li>
+              <li>
                 <div>
                   <i className="far fa-bookmark"></i>
                 </div>{" "}
                 Save post
-              </li> */}
-              {/* <li>
+              </li>
+              <li>
                 <div>
                   <i className="far fa-eye-slash"></i>
                 </div>{" "}
                 Hide from
-              </li> */}
+              </li>
               <li onClick={() => deletePost(post._id)}>
                 <div>
                   <i className="far fa-trash-alt"></i>
                 </div>{" "}
-                Remove
+                Delete
               </li>
             </ul>
           </div>
@@ -77,9 +90,26 @@ const Post = ({ post, getPosts }) => {
             <img src={post.image} className="post-img" alt="" />
           </div>
         ) : null}
+        <div className="info-bar" onClick={() => setCommentToggle(true)}>
+          <div className="likes">12 likes</div>
+          {localComments > "0" ? <p>{localComments.length} comments</p> : null}
+        </div>
       </div>
       <hr />
-      <PostComment />
+      <PostComment
+        postID={post._id}
+        getComments={getComments}
+        handleCommentToggle={handleCommentToggle}
+        commentToggle={commentToggle}
+      />
+
+      {commentToggle
+        ? localComments.map((comment) => (
+            <>
+              <Comment commentInfo={comment} />
+            </>
+          ))
+        : null}
     </div>
   );
 };
