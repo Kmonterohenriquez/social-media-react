@@ -1,7 +1,13 @@
 @import ../Colors
-.Login 
+.Login
+    min-height: 420px
+    display: flex 
+    flex-direction: column 
     &-title
-        margin: 40px 0
+        margin: 10px 0
+    .Signup-title
+        margin: 10px 0
+    &-title, .Signup-title
         position: relative 
         font-size: 1.5rem
         &:after 
@@ -14,6 +20,20 @@
             border-radius: 10px
             background: $primary-color
 
+    .user-pic-container
+        display: flex 
+        justify-content: center
+        img
+            margin: 20px 0
+            padding: 5px
+            border: 4px $primary-color solid 
+            border-radius: 50%
+            height: 110px
+            width: 110px
+            object-fit: cover 
+            object-position: center 
+    .mt-lg 
+        margin-top: 25px
     .input-box 
         position: relative 
         margin-bottom: 10px
@@ -53,17 +73,8 @@
         font-size: .9rem
         margin-bottom: 20px
 
-    .social-media 
-        // background: red 
-        display: flex 
-        justify-content: center 
-        margin-top: 10px
-        
-        i 
-            margin-right: 10px 
-            font-size: 1.2rem
-            color: grey
-            cursor: pointer
+    button 
+        margin-right: 5px
 
 
 
