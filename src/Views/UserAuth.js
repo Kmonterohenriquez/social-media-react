@@ -7,7 +7,7 @@ import Login from "../components/UserAuth/Login";
 import Signup from "../components/UserAuth/Signup";
 
 const UserAuth = () => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const changeHandler = () => {
     setActive(!active);
   };
@@ -43,11 +43,23 @@ const UserAuth = () => {
                 Sign up
               </button>
             </div>
-            {active === false ? (
-              <Login />
-            ) : (
-              <Signup changeHandler={changeHandler} />
-            )}
+            <div className="forms-container">
+              {active === false ? (
+                <Login />
+              ) : (
+                <Signup changeHandler={changeHandler} />
+              )}
+            </div>
+            <div className="bottom">
+              <h1>
+                {active === false ? "Login" : "Signup"} via social account
+              </h1>
+              <div className="social-media">
+                <i className="fab fa-facebook fb"></i>
+                <i className="fab fa-google google"></i>
+                <i className="fab fa-twitter twitter"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
