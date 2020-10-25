@@ -1,0 +1,77 @@
+@import ../Colors
+.open, .close
+    transition: all 100s 
+.open
+    bottom: -20px 
+      
+.close 
+    top: calc(100% - 55px) 
+
+.Chat 
+    padding-bottom: 20px
+    background: white 
+    border: 1.5px solid #E4E4E4
+    display: flex
+    flex-direction: column
+    border-radius: 15px
+    width: 290px
+    position: fixed
+    // bottom: 0 
+    right: 0
+    // bottom: -400px
+    
+    &-header
+        display: flex 
+        justify-content: space-between
+        align-items: center
+        .left-side
+            display: flex 
+            align-items: center
+            padding: 10px 15px
+            .user-img 
+                height: 35px
+                width: 35px 
+                border-radius: 50%
+                margin-right: 10px
+                object-fit: cover 
+                object-position: center
+
+        .right-side 
+            padding: 10px
+            margin-right: 10px
+            
+
+        .messaging 
+            margin-right: 10px
+            font-weight: bolder
+            font-size: .95rem
+            letter-spacing: .5px
+        i 
+            padding: 5px
+            cursor: pointer
+    hr 
+        width: 100%
+        margin: 0
+        border: .1px solid #c2c0c0b6
+    &-rooms 
+        display: flex 
+        align-items: center
+        padding: 10px 15px
+        border-bottom: 1.5px solid #E4E4E4
+        cursor: pointer
+        &:hover 
+            background: $hover-color
+        img 
+            height: 35px
+            width: 35px 
+            border-radius: 50%
+            margin-right: 10px
+            object-fit: cover 
+            object-position: center
+        .receptor
+            &-name 
+                line-height: 1.5rem
+            p.last-msg 
+                color: #666666
+                font-size: .9rem
+
