@@ -7,6 +7,9 @@
     border-bottom: 2.5px solid #E4E4E4
     background: white
     border-radius: 8px
+    width: 100%
+    overflow: hidden
+    
     hr 
         
         margin: 0
@@ -123,7 +126,18 @@
                     font-size: .9rem 
         p.description-bottom-part
             line-height: 1.5rem
-            margin-bottom: 10px
+            margin-bottom: 10px 
+            word-wrap: break-word
+            
+        .info-bar 
+            display: flex 
+            justify-content: space-between
+            p 
+                cursor: pointer
+                &:hover
+                    text-decoration: underline
+
+
     .tech-used
         display: flex
         flex-wrap: wrap
@@ -162,7 +176,6 @@
 
         .liked 
             color: #2852a0
-            
 
     .submit-commet-bar 
         display: flex
