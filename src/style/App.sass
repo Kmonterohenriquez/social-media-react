@@ -14,10 +14,33 @@
 
 .App 
   background: #F5F5F5
+  position: relative
+
+.Chat-container
+  z-index: 9
+  position: fixed 
+  display: inline-flex
+  justify-content: flex-end
+  flex-wrap: wrap
+  bottom: -20px
+  right: 20px
+  overflow: hidden
+
+  // height: 375px
+  // width: 2000%
+  background: red
+
+  &>div 
+    margin-left: 15px
+  
+  
+
+  
+
 .sm-container 
-  @include container(1100px, 90%)
+  @include container(1000px, 90%)
 .md-container 
-  @include container(1200px, 90%)
+  @include container(1000px, 90%)
 
 .btn 
   padding: 10px 13px
@@ -52,3 +75,10 @@ hr
   border-style: none 
   border-top: 1px solid #E4E4E4
   margin: 15px 0
+
+.loading
+  display: flex 
+  justify-content: center
+  padding: 120px 0
+  &-gif
+    height: 150px
