@@ -1,11 +1,11 @@
 @import '../style/Colors'
 .Nav
     background: $primary-color
-
+    
     &-container
         display: flex
         align-items: center
-        justify-content: space-between
+        justify-content:space-between
 
     .left-side
         display: flex
@@ -45,9 +45,7 @@
 
     .right-side
         display: flex
-
         nav 
-            
             ul
                 margin: 0
                 display: flex
@@ -62,11 +60,38 @@
                     color: white
                     font-size: .85rem
                     cursor: pointer
+                    position: relative
                     &:hover 
                         background: lighten($primary-color, 5% )
+
+                    ul 
+                        position: absolute 
+                        top: 70px 
+                        left: 0
+                        background: white
+                        display: flex
+                        flex-direction: column
+                        border-radius: 8px
+                        border: 1px solid #E4E4E4
+                        border-bottom: 3px solid #E4E4E4
+                        overflow: hidden
+                        z-index: 90
+
+                        li 
+                            display: flex  
+                            align-items: flex-start
+                            color: black
+                            width: 200px
+                            &:hover
+                                background: $hover-color
+
                 i
                     display: block
-        .profile-menu 
+        a 
+            text-decoration: none
+
+        .profile-menu
+            
             display: flex
             align-items: center 
             color: white 
@@ -87,7 +112,6 @@
 
 
 @media screen and ( max-width: 1200px  )
-
     .Nav 
         .right-side
             nav 

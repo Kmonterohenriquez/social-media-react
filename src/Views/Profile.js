@@ -1,25 +1,44 @@
 import React from "react";
 import "../style/Profile/Profile.sass";
 
-// Components
+// COMPONENTS
 import Cover from "../components/Profile/Cover";
-import HeaderProfile from "../components/Profile/HeaderProfile.js"
-import UserInfo from '../components/Profile/UserInfo.js'
-import UserFeed from "../components/Profile/UserFeed"
+import HeaderProfile from "../components/Profile/HeaderProfile.js";
+import ProfileSideBar from "../components/Profile/ProfileSideBar.js";
+import UserFeed from "../components/Profile/UserFeed";
+import UserInfo from "../components/Profile/UserInfo";
+import UserPortfolio from "../components/Profile/UserPortfolio";
 
-const Profile = () => {
+// REDUX
+import { connect } from "react-redux";
+import getCurrUser from "../redux/actions/getCurrUser";
+
+
+const Profile = (props) => {
+  const [menuToggle, setMenuToggle] = React.useState("feed");
+  const currUser = props.currUser.user;
+  const handleMenu = (value) => {
+    setMenuToggle(value);
+  };
   return (
     <div className="Profile ">
       <div className="sm-container">
-          <Cover />
-          <HeaderProfile />
-          <div className="splitter">
-            <UserInfo />
-            <UserFeed />
+        <Cover />
+        <HeaderProfile handleMenu={handleMenu} currUser={currUser}/>
+        <div className="splitter">
+          <ProfileSideBar />
+          <div className="UserFeeds-container">
+            {menuToggle === "feed" ? <UserFeed currUser={currUser}/> : menuToggle === 'info'? <UserInfo />: <UserPortfolio />}
           </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  currUser: state.getCurrUser,
+});
+
+export default connect(mapStateToProps, { getCurrUser })(Profile);
+
