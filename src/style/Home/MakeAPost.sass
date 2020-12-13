@@ -1,0 +1,75 @@
+@import ../Colors
+
+.PostAJob
+    background: white
+    padding: 10px 12px
+    display: flex 
+    flex-direction: column
+    border: 1.5px solid $border-color
+    border-radius: 8px
+    i, p 
+        color: $light-grey
+        font-size: .9rem 
+    
+
+    .top-side 
+        display: flex
+        align-items: center
+        padding: 12px 15px
+        width: 100%
+        border: $border-color solid 2px
+        border-radius: 30px 
+        cursor: pointer
+        position: relative
+        overflow: hidden
+        
+        i 
+            font-size: 1.2rem
+            margin-right: 5px
+        
+        .hover
+            position: absolute
+            z-index: 2
+            content: ""
+            top: 0  
+            left: 0 
+            width: 100% 
+            height: 100% 
+            background: #0000001c
+            opacity: 0
+            transition: .3s
+            &:hover
+                opacity: 1
+
+    .bottom-side
+        display: flex 
+        justify-content: space-between
+        padding: 0 15px
+        margin-top: 5px
+
+        div 
+            cursor: pointer
+            display: flex 
+            align-items: center
+            padding: 10px
+            border-radius: 8px
+            &:hover 
+                background: $hover-color
+        i 
+            font-size: 1.4rem
+            margin-right: 5px
+
+        i.fa-image 
+            color: #70B5F9
+        
+        i.fa-film 
+            color: #E6A33E
+
+        i.fa-file-alt 
+            color: #F5987E
+        
+        i.fa-newspaper
+            color: #7EC15E
+
+
+        
