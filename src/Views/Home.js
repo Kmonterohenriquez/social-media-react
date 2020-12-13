@@ -4,7 +4,7 @@ import "../style/Home/Home.sass";
 
 // COMPONENTS
 import UserProfile from "../components/Home/UserProfile";
-import PostAJob from "../components/Home/PostAJob";
+import MakeAPost from "../components/Home/MakeAPost";
 import Signup from "../components/Home/Signup";
 import Post from "../components/Home/Post";
 import Menu from "../components/Home/Menu";
@@ -64,7 +64,7 @@ const Home = (props) => {
               />
             </div>
           ) : null}
-          <PostAJob modalHandler={modalHandler} />
+          <MakeAPost modalHandler={modalHandler} />
           {posts.length ? (
             posts.map((post) => (
               <div key={post._id}>

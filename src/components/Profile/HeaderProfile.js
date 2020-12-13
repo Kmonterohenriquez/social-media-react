@@ -1,22 +1,44 @@
 import React from "react";
 import me from "../../img/user_pic.jpg";
 import "../../style/Profile/HeaderProfile.sass";
+import cover from '../../img/cover.jpg'
 
 const HeaderProfile = ({ handleMenu, currUser }) => {
-  const {firstName, lastName} = currUser
+  // const { firstName, lastName } = currUser
+
+  // ------------  Dummy data ------------//
+  const userInfo = {
+    firstname: "Kevin",
+    lastName: 'Montero',
+    currJob: "React Developer",
+    company: "American Express",
+    connections: 3987,
+    location: {
+      city: 'Davenport',
+      state: 'Florida',
+      country: "United States"
+    }
+  };
+  // ---------------------------------------
+
+  const { firstname, lastName, currJob, company, location, connections } = userInfo
+  const { city, state, country } = location
+  
   return (
-    <div className="HeaderProfile">
-      <div className="profile-image-container">
-        <i className="fas fa-camera"></i>
-        <img src={me} alt="" />
+    <div className="HeaderProfile grey-border mg-b-4 white-bg">
+      <div className="cover">
+        <img src={cover} alt=""/>
       </div>
-      <h1>{firstName} {lastName}</h1>
-      <div className="HeaderProfile-current-job">React Developer</div>
-      <div className="section-container">
-        <p className="section" onClick={()=>handleMenu('feed')}><i className="far fa-newspaper"></i>Feed</p>
-        <p className="section" onClick={()=>handleMenu('info')}><i className="fas fa-info-circle"></i>Info</p>
-        <p className="section" onClick={()=>handleMenu('portfolio')}><i className="fas fa-puzzle-piece"></i>Portfolio</p>
-      </div>
+     <div className="user-info-container">
+        <div className="profile-image-container">
+          <img src={me} alt="" />
+        </div>
+        <div className='user-info'>
+          <h1 className="font-size-2 mg-tb-1">{firstname} {lastName}</h1>
+          <p className="mg-b-1">{currJob} at {company}</p>
+          <p>{city}, {state}, {country} - <span className='connections'>{connections} connections</span></p>
+        </div>
+     </div>
     </div>
   );
 };

@@ -1,11 +1,9 @@
 @import '../style/Colors'
 .Nav
-    background: $primary-color
-    
     &-container
         display: flex
         align-items: center
-        justify-content:space-between
+        justify-content: space-between
 
     .left-side
         display: flex
@@ -13,14 +11,14 @@
 
         .logo 
             margin-right: 10px
-            color: white 
+            color: $primary-color 
             font-weight: bolder
-            font-size: 1.5rem
+            font-size: 1.7rem
             cursor: pointer
             transition: color .3s
 
             &:hover 
-                color: #d8d8d8
+                color: darken($primary-color, 10%)
 
         .search-bar
             position: relative
@@ -29,7 +27,8 @@
                 padding: 10px 40px 10px 12px
                 border-radius: 30px 
                 border-style: none
-                width: 300px
+                width: 100%
+                max-width: 300px
                 background: #F1F3F5
 
                 &:focus
@@ -45,6 +44,7 @@
 
     .right-side
         display: flex
+        align-items: center
         nav 
             ul
                 margin: 0
@@ -56,14 +56,17 @@
                 li 
                     text-align: center
                     list-style: none 
-                    padding: 15px  20px
-                    color: white
-                    font-size: .85rem
+                    padding: 15px
+                    color: $light-grey
                     cursor: pointer
                     position: relative
                     &:hover 
-                        background: lighten($primary-color, 5% )
-
+                        color: darken($light-grey, 30% )
+                    
+                    p
+                      font-size: .85rem      
+                    i 
+                        font-size: 1.2rem
                     ul 
                         position: absolute 
                         top: 70px 
@@ -91,28 +94,50 @@
             text-decoration: none
 
         .profile-menu
-            
             display: flex
             align-items: center 
-            color: white 
-            border-left: 1.5px solid #adadad5b
-            border-right: 1.5px solid #adadad5b
+            color: $light-grey 
+            border-left: 1px solid #adadad5b
+            border-right: 1px solid #adadad5b
             padding: 13px 10px
             cursor: pointer
             &:hover 
-                background: lighten($primary-color, 5% )
+                background: $hover-color
 
             .profile-picture img 
                 height: 30px
                 width: 30px
                 border-radius: 50% 
-            p.username 
+            p.me 
                 padding: 0 7px
 
 
 
-@media screen and ( max-width: 1200px  )
+@media screen and ( max-width: 900px  )
     .Nav 
         .right-side
             nav 
-                display: none
+                li  
+                    p 
+                        display: none
+
+@media screen and ( max-width: 500px  )
+    .Nav
+        &-container
+            justify-content: none
+
+            .left-side 
+
+            .right-side
+
+                nav 
+                    display: none
+                    li  
+                        p 
+                            display: none
+                .profile-menu
+                    border: none
+                    .me 
+                        display: none
+
+        

@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const register = (req, res, next) => {
-  const { firstName, lastName, username, email, password } = req.body;
+  const { email, fullName, password } = req.body;
 
   // Encript Password
   bcrypt.hash(password, 10, (err, hashedPass) => {
@@ -14,9 +14,7 @@ const register = (req, res, next) => {
     }
     // Get info from Front-End and Create object for new User registered
     let user = new User({
-      firstName,
-      lastName,
-      username,
+      fullName,
       email,
       password: hashedPass,
     });
@@ -34,6 +32,7 @@ const register = (req, res, next) => {
         res.json({
           message: "An error ocurred Adding an User.",
         });
+        console.log("An error ocurred Adding an User.")
       });
   });
 };

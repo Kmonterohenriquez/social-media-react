@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/App.sass";
+import "./style/css-framework.sass"
 
 // ROUTES
 import routes from "./router";
@@ -17,11 +18,11 @@ import { withRouter } from "react-router-dom";
 function App(props) {
   let currLocation = props.location.pathname;
   const user = props.currUser.user.email;
-  React.useEffect(() => {
-    if (user === "No user logged in") {
-      props.history.push("/");
-    }
-  }, [routes]);
+  // React.useEffect(() => {
+  //   if (user === "No user logged in") {
+  //     props.history.push("/");
+  //   }
+  // }, [routes]);
   console.log(props.history)
   return (
     <>
