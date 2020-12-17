@@ -45,7 +45,7 @@
     .right-side
         display: flex
         align-items: center
-        nav 
+        nav
             ul
                 margin: 0
                 display: flex
@@ -53,13 +53,14 @@
                 align-items: center
                 a 
                     text-decoration: none
+                    position: relative
+               
                 li 
                     text-align: center
                     list-style: none 
                     padding: 15px
                     color: $light-grey
                     cursor: pointer
-                    position: relative
                     &:hover 
                         color: darken($light-grey, 30% )
                     
@@ -67,26 +68,6 @@
                       font-size: .85rem      
                     i 
                         font-size: 1.2rem
-                    ul 
-                        position: absolute 
-                        top: 70px 
-                        left: 0
-                        background: white
-                        display: flex
-                        flex-direction: column
-                        border-radius: 8px
-                        border: 1px solid #E4E4E4
-                        border-bottom: 3px solid #E4E4E4
-                        overflow: hidden
-                        z-index: 90
-
-                        li 
-                            display: flex  
-                            align-items: flex-start
-                            color: black
-                            width: 200px
-                            &:hover
-                                background: $hover-color
 
                 i
                     display: block
@@ -97,9 +78,9 @@
             display: flex
             align-items: center 
             color: $light-grey 
-            border-left: 1px solid #adadad5b
-            border-right: 1px solid #adadad5b
-            padding: 13px 10px
+            // border-left: 1px solid #adadad5b
+            // border-right: 1px solid #adadad5b
+            padding: 15px 10px
             cursor: pointer
             &:hover 
                 background: $hover-color
@@ -111,7 +92,11 @@
             p.me 
                 padding: 0 7px
 
-
+    .active
+        background: $hover-color
+        i, p
+            color: black
+        
 
 @media screen and ( max-width: 900px  )
     .Nav 

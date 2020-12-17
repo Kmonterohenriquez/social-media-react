@@ -58,7 +58,7 @@ const Home = (props) => {
           {modalToggle ? (
             <div className="Modal-container">
               <PostAJobModal
-                modalHandler={modalHandler}
+                modalHandler={modalHandler}x
                 getPosts={getPosts}
                 userID={user._id}
               />

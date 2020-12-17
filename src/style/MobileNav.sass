@@ -1,0 +1,28 @@
+@import ./Colors
+.MobileNav 
+    display: none
+@media screen and ( max-width: 500px  )
+    .MobileNav
+        width: 100%
+        display: block
+        position: fixed
+        bottom: 0
+        left: 0
+        margin-bottom: 30px
+        nav 
+            border-radius: 30px
+            background: white
+            background: #cccccc
+            
+            ul 
+                display: flex
+                justify-content: space-between
+                a 
+                    text-decoration: none
+                li 
+                    list-style: none
+                    color: $light-grey
+                    padding: 12px 20px
+                    cursor: pointer
+                    i 
+                        font-size: 1.5rem

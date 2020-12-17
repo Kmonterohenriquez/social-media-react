@@ -25,7 +25,7 @@ const HeaderProfile = ({ handleMenu, currUser }) => {
   const { city, state, country } = location
   
   return (
-    <div className="HeaderProfile grey-border mg-b-4 white-bg">
+    <div className="HeaderProfile grey-border mg-b-4 white-bg rounded-2">
       <div className="cover">
         <img src={cover} alt=""/>
       </div>
@@ -34,7 +34,7 @@ const HeaderProfile = ({ handleMenu, currUser }) => {
           <img src={me} alt="" />
         </div>
         <div className='user-info'>
-          <h1 className="font-size-2 mg-tb-1">{firstname} {lastName}</h1>
+          <h1 className="b-sm-font mg-tb-1">{firstname} {lastName}</h1>
           <p className="mg-b-1">{currJob} at {company}</p>
           <p>{city}, {state}, {country} - <span className='connections'>{connections} connections</span></p>
         </div>

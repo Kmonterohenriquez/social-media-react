@@ -1,10 +1,24 @@
 @import ../Colors
 
 .Profile
-    min-height: calc( 100vh - 95px )
+    min-height: calc( 100vh - 100px )
     background: #F5F5F5
     padding: 20px 0
     
+    &-container
+        display: grid 
+        grid-template-columns: 70% calc(30% - 15px)
+        grid-gap: 15px
+    .side-bar
+        display: grid 
+        align-items: flex-start
+        grid-gap: 10px
 
-
+        
+@media screen and ( max-width: 768px )
+    .Profile
+        &-container
+            display: block
+        .side-bar 
+            display: none
     

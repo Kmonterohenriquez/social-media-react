@@ -7,6 +7,7 @@ import routes from "./router";
 
 // COMPONENTS
 import Nav from "./components/Nav";
+import MobileNav from "./components/MobileNav"
 import Footer from "./components/Footer";
 import Chat from "./Views/Chat";
 
@@ -35,6 +36,9 @@ function App(props) {
         </>
       ) : null}
       {routes}
+      <div className="MobileNav-container">
+        <MobileNav/>
+      </div>
       <Footer />
     </>
   );

@@ -11,14 +11,14 @@
         bottom: 0
         top: 0 
         left: 0 
-        opacity: .8
+        opacity: .5
         z-index: 10
         width: 100%
         background: black
         
     &-container
         display: grid 
-        grid-template-columns: 22% 56% 22% 
+        grid-template-columns: calc(22% - 20px) 56% calc(22% - 20px)
         grid-gap: 20px
 
         .center, .left, .right 

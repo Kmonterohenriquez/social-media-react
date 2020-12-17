@@ -4,6 +4,7 @@ import "../style/Profile/Profile.sass";
 // COMPONENTS
 import HeaderProfile from "../components/Profile/HeaderProfile.js";
 import ProfileSideBar from "../components/Profile/ProfileSideBar.js";
+import PeopleAlsoViewed from "../components/Profile/PeopleAlsoViewed";
 
 // REDUX
 import { connect } from "react-redux";
@@ -18,13 +19,22 @@ const Profile = (props) => {
   };
   return (
     <div className="Profile ">
-      <div className="sm-container">
-        <HeaderProfile handleMenu={handleMenu} currUser={currUser}/>
-        <div className="splitter">
+      <div className="Profile-container sm-container">
+        <div className='main-side'>
+          <HeaderProfile handleMenu={handleMenu} currUser={currUser}/>
           <ProfileSideBar />
+        </div>
+        <div className="side-bar">
           {/* <div className="UserFeeds-container">
             {menuToggle === "feed" ? <UserFeed currUser={currUser}/> : menuToggle === 'info'? <UserInfo />: <UserPortfolio />}
           </div> */}
+          <PeopleAlsoViewed/>
+          <PeopleAlsoViewed/>
+          <PeopleAlsoViewed/>
+          <PeopleAlsoViewed/>
+          <PeopleAlsoViewed/>
+          <PeopleAlsoViewed/>
+
         </div>
       </div>
     </div>

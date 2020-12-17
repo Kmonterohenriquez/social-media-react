@@ -1,0 +1,27 @@
+@import ../Colors
+.PeopleAlsoViewed
+    .splitter
+        justify-content: space-between
+    .user
+        position: relative
+        &:after 
+            position: absolute 
+            content: ""
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+            background: #86858538 
+            width: 90% 
+            height: 1px
+            border-radius: 10px
+
+
+        img 
+            object-fit: cover
+            height: 65px
+            width: 65px
+        
+    i 
+        cursor: pointer
+        
+        

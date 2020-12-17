@@ -1,15 +1,18 @@
 import React from "react";
 import "../style/Nav.sass";
 import userPic  from '../img/user_pic.jpg'
-import { Link } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 
-const Nav = () => {
-  const [state, setState] =React.useState({
-    showNotifications: false
-  })
+const Nav = (props) => {
+  let currPage = props.location.pathname;
+  React.useEffect(() => { 
+    console.log("droga")
+  },[currPage])
+
+  console.clear()
+  console.log(currPage)
   return (
     <div className="Nav">
-      <div className="test" onClick={()=> setState({showNotifications: !state.showNotifications})}></div>
       <div className="Nav-container md-container">
         <div className="left-side">
           <Link to='/dashboard'><i className="fab fa-weebly logo"></i></Link>
@@ -21,20 +24,13 @@ const Nav = () => {
         <div className="right-side mg-l-3">
           <nav>
             <ul>
-            <Link to="/dashboard"><li className='active'><i className="fas fa-home"></i><p>Home</p></li></Link>
-              <li><i className="fas fa-user-friends"></i><p>My Network</p></li>
+              <Link to="/dashboard"><li className={currPage === "/dashboard"? "active": ""}><i className="fas fa-home"></i><p>Home</p></li></Link>
+              <Link to="/my-network"><li className={currPage === "/my-network"? "active": ""}><i className={`fas fa-user-friends`}></i><p>My Network</p></li></Link>
               <li><i className="fas fa-briefcase"></i><p>Jobs</p></li>
               <li><i className="far fa-comments"></i><p>Messages</p></li>
-              <li onClick={()=> setState({showNotifications: !state.showNotifications})}><i className="far fa-bell"></i><p>Notification</p> 
-              {state.showNotifications?<ul>
-                <li>example</li>
-                <li>example</li>
-                <li>example</li>
-              </ul>: null}</li>
-            </ul>
-          </nav>
+              <li><i className="far fa-bell"></i><p>Notification</p></li>
           <Link to="/profile">
-            <div className="profile-menu">
+            <div className={currPage === "/profile"? "active profile-menu": " profile-menu"} >
               <div className="profile-picture">
                 <img src={userPic} alt="" />
               </div>
@@ -42,10 +38,12 @@ const Nav = () => {
               <i className="fas fa-angle-down arrow-down"></i>
             </div>
           </Link>
+              </ul>
+          </nav>
         </div>
       </div>
     </div>
   );
 };
 
-export default Nav;
+export default withRouter(Nav);
