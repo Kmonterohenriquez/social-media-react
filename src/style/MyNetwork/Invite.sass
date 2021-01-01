@@ -1,0 +1,25 @@
+@import ../Colors
+
+.Invite 
+    border-bottom: 1px solid $border-color
+    padding: 10px 30px
+    &:last-child
+            border-bottom: none
+    img 
+        height: 80px
+        border-radius: 50%
+    
+    &-response 
+        button 
+            padding: 10px 25px
+            border-radius: 30px
+            border-style: none
+            cursor: pointer
+
+        .accept 
+            background: $primary-color
+            color: white
+            transition: background .5s
+
+            &:hover 
+                background: darken($primary-color, 5%)
