@@ -9,7 +9,8 @@ const app = express();
 const AuthRoute = require("./routes/AuthRoute");
 const PostRoute = require("./routes/PostRoute");
 const UserRoute = require("./routes/UserRoute");
-const CommentRoute = require("./routes/CommentRoute")
+const CommentRoute = require("./routes/CommentRoute");
+const AWSRoute = require("./routes/AWSRoute")
 
 // Middleware
 app.use(cors());
@@ -33,6 +34,7 @@ const port = SERVER_PORT;
 
 //SETUP ROUTES
 app.use("/api", AuthRoute);
+app.use('/aws', AWSRoute);
 app.use("/posts", PostRoute);
 app.use("/user", UserRoute);
 app.use("/comments" , CommentRoute)

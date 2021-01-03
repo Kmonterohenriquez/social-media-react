@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const register = (req, res, next) => {
-  const { email, fullName, password } = req.body;
+  const { firstName, lastName, email, password, url } = req.body;
 
   // Encript Password
   bcrypt.hash(password, 10, (err, hashedPass) => {
@@ -14,9 +14,11 @@ const register = (req, res, next) => {
     }
     // Get info from Front-End and Create object for new User registered
     let user = new User({
-      fullName,
+      firstName, 
+      lastName,
       email,
       password: hashedPass,
+      profileImage
     });
 
     // Save new user in DB

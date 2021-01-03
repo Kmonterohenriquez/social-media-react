@@ -4,7 +4,12 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    fullName: {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName:{
       type: String,
       required: true,
       trim: true,
@@ -19,6 +24,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    profileImage: {
+      type: String,
+    }
   },
   {
     timestamps: true,
