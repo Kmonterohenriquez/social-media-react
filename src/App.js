@@ -18,7 +18,7 @@ import { withRouter } from "react-router-dom";
 
 function App(props) {
   let currLocation = props.location.pathname;
-  const user = props.currUser.user.email;
+  // const user = props.currUser.user.email;
   // React.useEffect(() => {
   //   if (user === "No user logged in") {
   //     props.history.push("/");

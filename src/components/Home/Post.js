@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import userPic from "../../img/user_pic.jpg";
 import "../../style/Home/Post.sass";
 import PostComment from "./PostComment";
 import Comment from "../../components/Home/Comment";
+
+import { connect } from "react-redux";
+import getCurrUser from "../../redux/actions/getCurrUser";
 import axios from "axios";
 
-const Post = ({ post, getPosts, getComments, comments }) => {
+const Post = ({ currUser, post, getPosts, getComments, comments }) => {
   const [postMenu, setPostMenu] = useState(false);
   const [commentToggle, setCommentToggle] = useState(false);
-
+  const [ userInfo, setUserInfo ] = useState([])
+  const currUserID = currUser.user._id;
+  const { userID } = post;
+  
   // Filter all comments into just Local comments
   if (comments) {
     var localComments = comments.filter(
@@ -16,6 +22,13 @@ const Post = ({ post, getPosts, getComments, comments }) => {
     );
   }
 
+  useEffect(()=> {
+    axios.get(`/user/info/${userID}`)
+      .then( res => setUserInfo(res.data.data[0]))
+      .catch( err => console.log(err))
+  },[])
+  
+  const currUserOptions = currUserID === userID ? true: false;
   const handleCommentToggle = () => setCommentToggle(!commentToggle);
 
   const deletePost = async (id) => {
@@ -53,18 +66,21 @@ const Post = ({ post, getPosts, getComments, comments }) => {
                 </div>{" "}
                 Save post
               </li>
-              <li>
-                <div>
-                  <i className="far fa-eye-slash"></i>
-                </div>{" "}
-                Hide from
-              </li>
-              <li onClick={() => deletePost(post._id)}>
-                <div>
-                  <i className="far fa-trash-alt"></i>
-                </div>{" "}
-                Delete
-              </li>
+              {currUserOptions? 
+              <>
+                <li>
+                  <div>
+                    <i className="far fa-eye-slash"></i>
+                  </div>{" "}
+                  Hide from
+                </li>
+                <li onClick={() => deletePost(post._id)}>
+                  <div>
+                    <i className="far fa-trash-alt"></i>
+                  </div>{" "}
+                  Delete
+                </li>
+              </>: null}
             </ul>
           </div>
         ) : null}
@@ -114,4 +130,9 @@ const Post = ({ post, getPosts, getComments, comments }) => {
   );
 };
 
-export default Post;
+const mapStateToProps = (state) => ({
+  currUser: state.getCurrUser,
+});
+
+export default connect(mapStateToProps, { getCurrUser })(Post);
+

@@ -10,7 +10,7 @@ function PostAJobModal({ modalHandler, getPosts, userID }) {
   const [salary, setSalary] = useState("");
   const [description, setDescription] = useState("");
 
-  function createPost() {
+function createPost() {
     axios
       .post("/posts", { title, image, skills, salary, category, description, userID })
       .then((res) => {

@@ -41,7 +41,7 @@ const MyNetwork = () => {
                         <p>See all {invitations.length}</p>
                     </div>
                     <div className="invites">
-                        {invitations.map(invite => (<Invite invite={invite}/> ))}
+                        {invitations.map(invite => (<Invite key={invite.id} invite={invite}/> ))}
                     </div>
                 </div>
             </div>

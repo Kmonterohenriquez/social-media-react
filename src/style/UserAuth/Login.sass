@@ -3,9 +3,12 @@
     min-height: 420px
     display: flex 
     flex-direction: column 
+    align-items: center
     &-title
         margin: 10px 0
     .Signup-title
+        display: flex 
+        justify-content: flex-start
         margin: 10px 0
     &-title, .Signup-title
         position: relative 
@@ -23,15 +26,28 @@
     .user-pic-container
         display: flex 
         justify-content: center
+        position: relative
         img
-            margin: 20px 0
-            padding: 5px
+            margin: 15px 0
+            padding: 4px
             border: 4px $primary-color solid 
             border-radius: 50%
-            height: 110px
-            width: 110px
+            height: 120px
+            width: 120px
             object-fit: cover 
             object-position: center 
+        .fa-camera
+            color: #202020a4
+            cursor: pointer
+            position: absolute
+            bottom: 25px 
+            right: 10px
+            font-size: 1.4rem
+            background: white
+            padding: 5px
+            border-radius: 50%
+            &:hover 
+                background: $hover-color
     .mt-lg 
         margin-top: 25px
     .input-box 
@@ -69,12 +85,12 @@
     .error 
         color: red
         line-height: 0
-        margin-left: 5px
         font-size: .9rem
-        margin-bottom: 20px
+        margin: 10px 5px 20px
 
     button 
         margin-right: 5px
+        width: 100%
 
 
 

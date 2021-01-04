@@ -23,4 +23,27 @@ const currUserInfo = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-module.exports = { currUserInfo };
+const getUserInfo = (req, res, next) => {
+  const { userID } = req.params;
+  User.find({ $or: [{ _id: userID }] })
+    .then((user) => {
+      if (user) {
+        res.status(200).json({
+          status: "succes",
+          message: "User Found!",
+          data: user,
+        });
+        return;
+      } else {
+        res.status(401).json({
+          status: "error",
+          message: "User not found.",
+          data: user,
+        });
+        return;
+      }
+    })
+    .catch((err) => console.log(err));
+};
+
+module.exports = { currUserInfo, getUserInfo };

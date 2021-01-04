@@ -3,8 +3,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const register = (req, res, next) => {
-  const { firstName, lastName, email, password, url } = req.body;
+  const { firstName, lastName, email, password, profileImage } = req.body;
 
+  console.log(firstName, lastName, email, password, profileImage)
   // Encript Password
   bcrypt.hash(password, 10, (err, hashedPass) => {
     if (err) {
@@ -20,7 +21,7 @@ const register = (req, res, next) => {
       password: hashedPass,
       profileImage
     });
-
+    
     // Save new user in DB
     user
       .save()
@@ -43,7 +44,9 @@ const login = (req, res, next) => {
   // Get info from the Front-End when users press Login button
   let email = req.body.email;
   let password = req.body.password;
+
   console.log("email", email, " password ", password);
+
   // Check if user exists on DadaBase
   User.findOne({ $or: [{ email: email }] }).then((user) => {
     if (user) {

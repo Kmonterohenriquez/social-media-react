@@ -48,7 +48,7 @@ const Home = (props) => {
   return (
     <div className="Home">
       {modalToggle ? <div className="dark"></div> : null}
-      <div className="Home-container md-container">
+      <div className="Home-container sm-container">
         <div className="left">
           <UserProfile user={user} />
           <Suggestions />

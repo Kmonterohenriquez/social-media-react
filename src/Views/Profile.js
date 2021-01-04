@@ -12,16 +12,12 @@ import getCurrUser from "../redux/actions/getCurrUser";
 
 
 const Profile = (props) => {
-  const [menuToggle, setMenuToggle] = React.useState("feed");
   const currUser = props.currUser.user;
-  const handleMenu = (value) => {
-    setMenuToggle(value);
-  };
   return (
     <div className="Profile ">
       <div className="Profile-container sm-container">
         <div className='main-side'>
-          <HeaderProfile handleMenu={handleMenu} currUser={currUser}/>
+          <HeaderProfile currUser={currUser}/>
           <ProfileSideBar />
         </div>
         <div className="side-bar">
@@ -29,12 +25,6 @@ const Profile = (props) => {
             {menuToggle === "feed" ? <UserFeed currUser={currUser}/> : menuToggle === 'info'? <UserInfo />: <UserPortfolio />}
           </div> */}
           <PeopleAlsoViewed/>
-          <PeopleAlsoViewed/>
-          <PeopleAlsoViewed/>
-          <PeopleAlsoViewed/>
-          <PeopleAlsoViewed/>
-          <PeopleAlsoViewed/>
-
         </div>
       </div>
     </div>

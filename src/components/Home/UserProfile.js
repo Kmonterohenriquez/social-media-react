@@ -6,8 +6,8 @@ const UserProfile = ({user}) => {
     return (
         <div className='UserProfile' >
             <div className="box-color"></div>
-            <img src={userPic} alt="" className='user-picture'/>
-            <h1 className="username">{user.fullName}</h1>
+            <img src={user.profileImage} alt="" className='user-picture'/>
+            <h1 className="username">{user.firstName} {user.lastName}</h1>
             <p className="job-position">React Developer at Splay7</p>
             <hr />
             <p className="following">Following <span>13</span></p>

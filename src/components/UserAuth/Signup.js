@@ -12,8 +12,7 @@ const Signup = ({ changeHandler }) => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("")
-  const [profileimage, setProfileImage] = useState(user_placeholder);
-  // const [isUploading, setIsUploading] = useState(false);
+  const [profileImage, setProfileImage] = useState(user_placeholder);
 
   const register = () => {
     Axios.post("/api/register", {
@@ -21,7 +20,7 @@ const Signup = ({ changeHandler }) => {
       password,
       firstName,
       lastName,
-      profileimage
+      profileImage
     })
       .then((res) => {
         console.log(res);
@@ -32,16 +31,14 @@ const Signup = ({ changeHandler }) => {
 
   const onChangeHandler =(value, type)=> {
     switch(type){
-      case 'firstname':
+      case 'firstName':
         return setFirstName(value)
-      case 'lastname': 
+      case 'lastName': 
         return setLastName(value)
       case 'email':
         return setEmail(value)
       case 'password':
         return setPassword(value)
-      default:
-        return false
     }
   }
 
@@ -56,7 +53,7 @@ const Signup = ({ changeHandler }) => {
       id: 2,
       placeholder: "Lastname",
       icon: "fas fa-user",
-      type: "fullName"
+      type: "lastName"
     },
     {
       id: 3,
@@ -134,7 +131,7 @@ const Signup = ({ changeHandler }) => {
     <div className="Login">
       <h1 className="Signup-title">Sign up</h1>
       <div className="user-pic-container">
-        <img className='profile-img' src={profileimage} alt='' />
+        <img className='profile-img' src={profileImage} alt='' />
         <Dropzone
           onDropAccepted={getSignedRequest}
           accept='image/*'

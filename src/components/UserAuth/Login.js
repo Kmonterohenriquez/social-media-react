@@ -12,18 +12,17 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
 
-  const handleLogin = async (e, guest) => {
-    let newEmail, newPassword;
+  async function handleGuest(e){
     e.preventDefault();
-    if (guest) {
-      newEmail = "guest@example.com";
-      newPassword = "1234";
-    } else {
-      newEmail = email;
-      newPassword = password;
-    }
+    setEmail("test@e.com");
+    setPassword("1234");
+    handleLogin(e)
+  }
 
-    Axios.post("/api/login", { email: newEmail, password: newPassword })
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    Axios.post("/api/login", { email, password})
       .then(async (res) => {
         await props.getCurrUser(email);
         setResponse(res.data.message); // This is just for testing -- Remove it when the Web app is done --
@@ -33,9 +32,9 @@ const Login = (props) => {
         setResponse(err.response.data.message);
         console.log(err.response);
       });
-  };
-  return (
-    <div className="Login">
+    };
+    return (
+      <div className="Login">
       <h1 className="Login-title">Log In</h1>
       <form>
         <div className="input-box mt-lg">
@@ -56,14 +55,14 @@ const Login = (props) => {
         </div>
         <button
           type="submit"
-          className="primary-btn"
-          onClick={(e) => handleLogin(e, false)}
+          className="primary-btn mg-b-2"
+          onClick={(e) => handleLogin(e)}
         >
           Login
         </button>
         <button
-          className="secondary-btn btn"
-          onClick={(e) => handleLogin(e, true)}
+          className="secondary-btn btn mg-b-2"
+          onClick={(e) => handleGuest(e)}
         >
           Guest
         </button>

@@ -9,8 +9,6 @@ const Nav = (props) => {
     console.log("droga")
   },[currPage])
 
-  console.clear()
-  console.log(currPage)
   return (
     <div className="Nav">
       <div className="Nav-container md-container">
