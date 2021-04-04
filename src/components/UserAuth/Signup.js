@@ -39,9 +39,10 @@ const Signup = ({ changeHandler }) => {
         return setEmail(value)
       case 'password':
         return setPassword(value)
+      default:
+        return ''
     }
   }
-
   const inputs = [
     {
       id: 1,

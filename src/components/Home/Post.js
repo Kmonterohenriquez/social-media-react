@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import userPic from "../../img/user_pic.jpg";
 import "../../style/Home/Post.sass";
 import PostComment from "./PostComment";
 import Comment from "../../components/Home/Comment";
@@ -12,8 +11,10 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
   const [postMenu, setPostMenu] = useState(false);
   const [commentToggle, setCommentToggle] = useState(false);
   const [ userInfo, setUserInfo ] = useState([])
+  let { userID, _id } = post;
   const currUserID = currUser.user._id;
-  const { userID } = post;
+  const { firstName, lastName, profileImage } = userInfo;
+  const [liked, setLiked] = useState(false)
   
   // Filter all comments into just Local comments
   if (comments) {
@@ -22,11 +23,25 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
     );
   }
 
+  // Like Handler 
+  const likeHandler = () =>{
+    const postID = _id;
+    userID= currUserID;
+    console.clear()
+    axios.put(`/like/update/${userID}/${postID}/${!liked}`)
+      .then(res => setLiked(!liked))
+      .catch(err => console.log(err))
+  } 
+  // Get user info who made this post
   useEffect(()=> {
+    getUserInfo()
+  },[])
+
+  const getUserInfo =()=> {
     axios.get(`/user/info/${userID}`)
       .then( res => setUserInfo(res.data.data[0]))
       .catch( err => console.log(err))
-  },[])
+  }
   
   const currUserOptions = currUserID === userID ? true: false;
   const handleCommentToggle = () => setCommentToggle(!commentToggle);
@@ -40,14 +55,16 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
       })
       .catch((err) => console.log(err));
   };
-
+  console.clear()
+  console.log('post id: ', post._id)
+  console.log("user's id", userID)
   return (
     <div className="Post">
       <div className="top-part">
         <div className="user-info">
-          <img src={userPic} alt="" className="user-pic" />
+          <img src={profileImage} alt="" className="user-pic" />
           <div>
-            <p className="username">Kevin Montero</p>
+            <p className="username">{firstName} {lastName}</p>
             <p className="time-posted">
               <i className="far fa-clock"></i> 3 min ago
             </p>
@@ -57,6 +74,7 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
           className="fas fa-ellipsis-v menu-icon"
           onClick={() => setPostMenu(!postMenu)}
         ></i>
+        
         {postMenu ? (
           <div className="post-menu">
             <ul>
@@ -68,6 +86,12 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
               </li>
               {currUserOptions? 
               <>
+              <li>
+                  <div>
+                    <i className="far fa-edit"></i>
+                  </div>{" "}
+                  Edit
+                </li>
                 <li>
                   <div>
                     <i className="far fa-eye-slash"></i>
@@ -117,13 +141,13 @@ const Post = ({ currUser, post, getPosts, getComments, comments }) => {
         getComments={getComments}
         handleCommentToggle={handleCommentToggle}
         commentToggle={commentToggle}
+        liked={liked}
+        likeHandler={likeHandler}
       />
 
       {commentToggle
         ? localComments.map((comment) => (
-            <>
-              <Comment commentInfo={comment} />
-            </>
+              <Comment key={comment._id} commentInfo={comment} />
           ))
         : null}
     </div>

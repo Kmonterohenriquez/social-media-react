@@ -1,9 +1,8 @@
 import React from 'react'
 import '../style/MobileNav.sass'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
-const MobileNav = props => {
+const MobileNav = () => {
     return (
         <div className='MobileNav'>
             <nav className='sm-container grey-border'>

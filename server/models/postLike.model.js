@@ -13,7 +13,7 @@ const postLikeSchema = new Schema({
     require: true,
     trim: true,
   },
-  like: {
+  liked: {
     type: Boolean,
     require: true,
   },

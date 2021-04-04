@@ -5,8 +5,8 @@ import { Link, withRouter } from "react-router-dom"
 
 const Nav = (props) => {
   let currPage = props.location.pathname;
+
   React.useEffect(() => { 
-    console.log("droga")
   },[currPage])
 
   return (
@@ -27,15 +27,15 @@ const Nav = (props) => {
               <li><i className="fas fa-briefcase"></i><p>Jobs</p></li>
               <li><i className="far fa-comments"></i><p>Messages</p></li>
               <li><i className="far fa-bell"></i><p>Notification</p></li>
-          <Link to="/profile">
-            <div className={currPage === "/profile"? "active profile-menu": " profile-menu"} >
-              <div className="profile-picture">
-                <img src={userPic} alt="" />
-              </div>
-              <p className="me">Me</p>
-              <i className="fas fa-angle-down arrow-down"></i>
-            </div>
-          </Link>
+              <Link to="/profile">
+                <div className={currPage === "/profile"? "active profile-menu": " profile-menu"} >
+                  <div className="profile-picture">
+                    <img src={userPic} alt="" />
+                  </div>
+                  <p className="me">Me</p>
+                  <i className="fas fa-angle-down arrow-down"></i>
+                </div>
+              </Link>
               </ul>
           </nav>
         </div>

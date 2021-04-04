@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../../style/Home/PostAJobModal.sass";
+import { getSignedRequest, uploadFile } from '../../helpers/AWS'
+
+// AWS
+import Dropzone from 'react-dropzone'
 
 function PostAJobModal({ modalHandler, getPosts, userID }) {
   const [title, setTitle] = useState("");
@@ -14,11 +18,14 @@ function createPost() {
     axios
       .post("/posts", { title, image, skills, salary, category, description, userID })
       .then((res) => {
+        // Handle Modal to close it when a Post is created.
         modalHandler();
+        // Refresh page with the One just created.
         getPosts();
       })
       .catch((err) => console.log(err));
-  }
+  };
+
   return (
     <div className="PostAJobModal">
       <div className="header-container">
@@ -34,11 +41,33 @@ function createPost() {
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Image"
           onChange={(e) => setImage(e.target.value)}
-        />
+        /> */}
+        <Dropzone
+          onDropAccepted={getSignedRequest}
+          accept='image/*'
+          multiple={false}
+          className='test'
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div className='container'>
+              <div
+                {...getRootProps({
+                  className: 'dropzone',
+                  onDrop: event => event.stopPropagation()
+                })}
+              >
+                <input {...getInputProps()} />
+                <div className='camera-container'>
+                  <i className='fas fa-camera'></i>
+                </div>
+              </div>
+            </div>
+          )}
+        </Dropzone>
         <div className="input-box">
           <select
             name=""

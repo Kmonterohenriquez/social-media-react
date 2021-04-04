@@ -1,5 +1,4 @@
 import React from 'react'
-import userPic from '../../img/user_pic.jpg'
 import '../../style/Home/UserProfile.sass'
 
 const UserProfile = ({user}) => {

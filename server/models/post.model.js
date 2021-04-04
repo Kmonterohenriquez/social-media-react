@@ -28,7 +28,6 @@ const postSchema = new Schema(
     },
     description: {
       type: String,
-      minlength: 30,
     },
     userID: {
       type: String,

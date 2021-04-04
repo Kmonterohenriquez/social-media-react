@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 import getCurrUser from "../../redux/actions/getCurrUser";
 import axios from "axios";
 
-const PostComment = ({ postID, currUser, getComments, handleCommentToggle, commentToggle }) => {
-  const [like, setLike] = useState(false);
+const PostComment = (props) => {
+  const { postID, currUser, getComments, handleCommentToggle, commentToggle, liked, likeHandler } = props;
   const [comment, setComment] = useState("");
 
   // GET current user from Redux
@@ -22,16 +22,16 @@ const PostComment = ({ postID, currUser, getComments, handleCommentToggle, comme
       .catch((err) => console.log(err));
     getComments();
   };
-  console.log("current comment: ", comment);
+  
   return (
     <div>
       <div className="comment-section">
         <p
-          className={like ? "liked" : `like-btn`}
-          onClick={() => setLike(!like)}
+          className={liked ? "liked" : `like-btn`}
+          onClick={() => likeHandler()}
         >
           <i
-            className={like ? "liked fas fa-thumbs-up" : "far fa-thumbs-up"}
+            className={`${liked ? "liked" : ""} fas fa-thumbs-up`}
           ></i>{" "}
           Like
         </p>

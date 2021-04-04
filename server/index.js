@@ -10,7 +10,8 @@ const AuthRoute = require("./routes/AuthRoute");
 const PostRoute = require("./routes/PostRoute");
 const UserRoute = require("./routes/UserRoute");
 const CommentRoute = require("./routes/CommentRoute");
-const AWSRoute = require("./routes/AWSRoute")
+const AWSRoute = require("./routes/AWSRoute");
+const PostLikeRoute = require('./routes/PostLikeRoute');
 
 // Middleware
 app.use(cors());
@@ -38,5 +39,6 @@ app.use('/aws', AWSRoute);
 app.use("/posts", PostRoute);
 app.use("/user", UserRoute);
 app.use("/comments" , CommentRoute)
+app.use("/like", PostLikeRoute)
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

@@ -67,9 +67,7 @@ const Home = (props) => {
           <MakeAPost modalHandler={modalHandler} />
           {posts.length ? (
             posts.map((post) => (
-              <div key={post._id}>
-                <Post post={post} getPosts={getPosts} getComments={getComments} comments={comments} />
-              </div>
+                <Post key={post._id} post={post} getPosts={getPosts} getComments={getComments} comments={comments} />
             ))
           ) : (
             <div className="loading">
